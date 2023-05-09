@@ -8,20 +8,21 @@
     <link rel="stylesheet" type="text/css" href="css/index-style.css" />
   </head>
   <body>
-    <audio preload="auto" id="background-song">
+    <audio preload="auto" id="background-song" loop>
       <source src="sounds/background-song.mp3" type="audio/mpeg" />
       seu navegador não suporta HTML5
     </audio>
-    <div class="background-imagem"></div>
+    <div class="background-imagem" ></div>
     <div class="overlay"></div>
     <div class="conteudo">
       <img id="sound-image" src="assets/pixel sound.png" />
       <div class="conteudo-imagem"></div>
-      <div class="logos">
+      <div class="logos" id="">
         <div class="conteudo-logo">ChessBit</div>
         <div class="conteudo-logo2">ChessBit</div>
       </div>
       <div class="conteudo-opcoes">
+        <img src="assets/Selector.png" class="selector">
         <span class="options">START</span>
         <span class="options">RULES</span>
         <span class="options">GREAT MATCHES</span>
@@ -33,11 +34,21 @@
 
 <script>
   const sound = document.getElementById("background-song");
-
   const imagem = document.getElementById("sound-image");
 
+  var soundON = false;
+
   imagem.addEventListener("click", function () {
-    sound.volume = 0.2;
-    sound.play();
+    if(!soundON){
+      soundON = true;
+      sound.volume = 0.2;
+      sound.play();
+
+    } else{
+      soundON = false;
+      sound.pause();
+    };
   });
+
+
 </script>
