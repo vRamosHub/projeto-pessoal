@@ -31,6 +31,18 @@ body {
   align-items: center;
 }
 
+/* Definindo imagem controle da musica */
+#sound-image {
+  height: 4vw;
+  width: 4vw;
+  margin-left: -95%;
+  margin-top: 3%;
+}
+
+#sound-image:hover {
+  cursor: pointer;
+}
+
 /* Definindo imagem de plano de fundo */
 .background-imagem {
   display: flex;
@@ -63,7 +75,7 @@ body {
   display: none;
 }
 
-/* Definindo Logo ChessBit */
+/* Definindo Imagem logo ChessBit */
 
 .conteudo-imagem {
   background-image: url("../assets/Chess-Board-Cortado.png");
@@ -77,13 +89,14 @@ body {
   /* margin-top: 2%; */
 }
 
-/* Definindo Logo ChessBit */
+/* Definindo Texto logo ChessBit */
 .logos {
-  height: 20vh;
+  height: 30vh;
   width: 30vw;
   display: flex;
   margin-bottom: 3%;
   margin-top: -5%;
+  justify-content: center;
 }
 
 .conteudo-logo {
@@ -103,6 +116,7 @@ body {
   /* margin-left: 15%; */
 }
 
+/* Definindo opções do menu */
 .conteudo-opcoes {
   display: flex;
   flex-direction: column;
@@ -110,28 +124,39 @@ body {
   height: 50vh;
   width: 30vw;
   position: relative;
+  /* background-color: aqua; */
 }
+
+.options_text:hover {
+  cursor: pointer;
+}
+
 .options {
   font-family: "8-Bit", sans-serif;
   font-size: 200%;
   color: white;
   z-index: 1;
   margin-bottom: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  /* background-color: red; */
 }
 
-#sound-image {
-  height: 4vw;
-  width: 4vw;
-  margin-left: -95%;
-  margin-top: 3%;
-  cursor: pointer;
-}
-
-.selector{
+.seta {
+  height: 60%;
   /* display: none; */
-  position: absolute;
-  left: 30%;
-  /* top: 100%; */
-  height: 32px;
+  /* background-color: blueviolet; */
+}
 
+.options_text {
+  margin-left: 2%;
+  margin-top: 1.2%;
+  -webkit-text-stroke: 1px #000;
+}
+
+.hidden {
+  display: none;
+  /* background-color: blue; */
 }

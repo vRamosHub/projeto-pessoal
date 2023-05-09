@@ -12,7 +12,14 @@
       <source src="sounds/background-song.mp3" type="audio/mpeg" />
       seu navegador não suporta HTML5
     </audio>
-    <div class="background-imagem" ></div>
+    <audio id="select_option" preload="auto">
+      <source
+        src="sounds/coin-collect-retro-8-bit-sound-effect-145251.mp3"
+        type="audio/mpeg"
+      />
+      seu navegador não suporta HTML5
+    </audio>
+    <div class="background-imagem"></div>
     <div class="overlay"></div>
     <div class="conteudo">
       <img id="sound-image" src="assets/pixel sound.png" />
@@ -22,33 +29,61 @@
         <div class="conteudo-logo2">ChessBit</div>
       </div>
       <div class="conteudo-opcoes">
-        <img src="assets/Selector.png" class="selector">
-        <span class="options">START</span>
-        <span class="options">RULES</span>
-        <span class="options">GREAT MATCHES</span>
-        <span class="options">EXTRAS</span>
+        <div class="options">
+          <img src="assets/Selector2.png" class="seta hidden" id="seta1" />
+          <span class="options_text">START</span>
+        </div>
+        <div class="options">
+          <img src="assets/Selector2.png" class="seta hidden" id="seta2" />
+          <span class="options_text">RULES</span>
+        </div>
+        <div class="options">
+          <img src="assets/Selector2.png" class="seta hidden" id="seta3" />
+          <span class="options_text">GREAT MATCHES</span>
+        </div>
+        <div class="options">
+          <img src="assets/Selector2.png" class="seta hidden" id="seta4" />
+          <span class="options_text">EXTRAS</span>
+        </div>
       </div>
     </div>
   </body>
 </html>
 
 <script>
-  const sound = document.getElementById("background-song");
-  const imagem = document.getElementById("sound-image");
+  document.addEventListener("DOMContentLoaded", function () {
+    const sound = document.getElementById("background-song");
+    const imagem = document.getElementById("sound-image");
 
-  var soundON = false;
+    var soundON = false;
 
-  imagem.addEventListener("click", function () {
-    if(!soundON){
-      soundON = true;
-      sound.volume = 0.2;
-      sound.play();
+    // Função para play e pouse musica
+    imagem.addEventListener("click", function () {
+      if (!soundON) {
+        soundON = true;
+        sound.volume = 0.2;
+        sound.play();
+      } else {
+        soundON = false;
+        sound.pause();
+      }
+    });
 
-    } else{
-      soundON = false;
-      sound.pause();
-    };
+    const div_opcoes = document.querySelector(".conteudo-opcoes");
+    const opcoes = div_opcoes.querySelectorAll("img");
+    const texto_opcoes = div_opcoes.querySelectorAll("span");
+    const select_option_sound = document.getElementById("select_option");
+
+    for (let i = 0; i < opcoes.length; i++) {
+      texto_opcoes[i].addEventListener("mouseover", () => {
+        opcoes[i].classList.remove("hidden");
+        select_option_sound.play();
+      });
+
+      texto_opcoes[i].addEventListener("mouseout", () => {
+        opcoes[i].classList.add("hidden");
+        select_option_sound.load();
+      });
+    }
   });
-
-
 </script>
