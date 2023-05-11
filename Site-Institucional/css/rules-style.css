@@ -131,6 +131,8 @@ body {
 #fileira_2 {
   width: 80%;
   height: 45%;
+  display: flex;
+  justify-content: space-around;
   /* background-color: purple; */
 }
 
@@ -155,7 +157,7 @@ body {
   position: absolute;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   transform: rotateY(0deg);
 }
 
@@ -165,7 +167,7 @@ body {
   position: absolute;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   transform: rotateY(180deg);
 }
 
@@ -192,4 +194,19 @@ body {
   position: absolute;
   left: 23%;
   top: 23%;
+}
+
+.desc_card {
+  position: absolute;
+  left: 0%;
+  top: 10%;
+  color: white;
+  font-family: "Arcade-In";
+}
+
+.bloco_texto{
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  left: 0%;
 }
