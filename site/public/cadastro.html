@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se || ChessBit</title>
+    <script src="./js/funcoes.js"></script>
+</head>
+<body>
+    <div id="conteudo">
+        <div id="box_cadastro">
+            <div id="cadastro">Cadastre-se</div>
+            <div class="campo">
+                <span>Nome:</span>
+                <input id="nome_input" type="text" placeholder="Seu nome">
+            </div>
+            <div class="campo">
+                <span>E-mail:</span>
+                <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+            </div>
+            <div class="campo">
+                <span>Senha:</span>
+                <input id="senha_input" type="password" placeholder="******">
+            </div>
+            <div class="campo">
+                <span>Confirmação da Senha:</span>
+                <input id="confirmacao_senha_input" type="password" placeholder="******">
+            </div>
+            <button class="botao" onclick="cadastrar()">Cadastrar</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        // finalizarAguardar();
+        console.log("Tem campos em branco!");
+        return false;
+    } else if(senhaVar != confirmacaoSenhaVar){
+        console.log("Senhas diferentes!");
+        return false;
+    } else if(senhaVar < 6){
+        console.log("Senha deve ser maior que 6 caracteres");
+        return false;
+    } else if(emailVar.indexOf('@') == -1){
+        console.log("Seu email deve conter @");
+        return false;
+    };
+
+    // Verificando se o email já existe
+    fetch("/usuarios/cadastro", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            emailServer: emailVar,
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+            },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar, 
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+                    // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    console.log("Tudo ok com a resposta!")
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                    limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+            // console.log("Tudo ok com a resposta!")
+            // throw ("Houve um erro ao tentar realizar o cadastro!");
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+    }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                console.log("Já tem um email desse cadastrado");
+                // finalizarAguardar();
+    });
+
+    // Enviando o valor da nova input
+    // fetch("/usuarios/cadastrar", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         // crie um atributo que recebe o valor recuperado aqui
+    //         // Agora vá para o arquivo routes/usuario.js
+    //         nomeServer: nomeVar,
+    //         emailServer: emailVar,
+    //         senhaServer: senhaVar, 
+    //     })
+    // }).then(function (resposta) {
+
+    //     console.log("resposta: ", resposta);
+
+    //     if (resposta.ok) {
+    //         // cardErro.style.display = "block";
+    //         // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+    //         console.log("Tudo ok com a resposta!")
+
+    //         setTimeout(() => {
+    //             window.location = "login.html";
+    //         }, "2000")
+
+    //         limparFormulario();
+    //         // finalizarAguardar();
+    //     } else {
+    //         throw ("Houve um erro ao tentar realizar o cadastro!");
+    //     }
+    // }).catch(function (resposta) {
+    //     console.log(`#ERRO: ${resposta}`);
+    //     // finalizarAguardar();
+    // });
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+</script>
