@@ -198,15 +198,20 @@ body {
 
 .desc_card {
   position: absolute;
-  left: 0%;
+  height: 30%;
+  width: 60%;
+  left: 10%;
   top: 10%;
-  color: white;
-  font-family: "Arcade-In";
+  color: black;
+  font-family: "8-bit";
+  font-size: medium;
 }
 
-.bloco_texto{
+.bloco_texto {
   position: absolute;
-  height: 50%;
-  width: 50%;
-  left: 0%;
+  height: 60%;
+  width: 90%;
+  left: 5%;
+  top: 7%;
+  transform: rotatez(270deg);
 }
