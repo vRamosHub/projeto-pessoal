@@ -22,7 +22,12 @@ body {
 
 a {
   text-decoration: none;
+  text-align: center;
   color: white;
+}
+
+.nao_wrap {
+  white-space: nowrap;
 }
 
 /* Definindo plano de fundo */
@@ -145,7 +150,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   /* background-color: red; */
 }
 
