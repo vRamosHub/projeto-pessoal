@@ -276,11 +276,11 @@
   var versus = document.querySelectorAll(".versus");
 
   for (let elemento = 0; elemento < popups.length; elemento++) {
-    versus[elemento].addEventListener("click", function () {
+    versus[elemento].addEventListener("mouseover", function () {
       popups[elemento].classList.remove("hidden");
     });
 
-    popups[elemento].addEventListener("click", function () {
+    popups[elemento].addEventListener("mouseleave", function () {
       popups[elemento].classList.add("hidden");
     });
   }

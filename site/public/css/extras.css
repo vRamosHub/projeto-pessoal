@@ -1,0 +1,96 @@
+/* Fontes */
+@font-face {
+    font-family: "Arcade-In";
+    src: url("../fonts/8-bit\ Arcade\ In.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Arcade-Out";
+    src: url("../fonts/8-bit\ Arcade\ Out.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "8-Bit";
+    src: url("../fonts/Diary\ of\ an\ 8-bit\ mage.otf") format("truetype");
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/stars-3.jpg");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  #conteudo {
+    width: 100;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+  }
+  
+  #header {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    width: 100%;
+    height: 20vh;
+    /* background-color: red; */
+  }
+
+  #matches_text {
+    position: relative;
+    width: 30%;
+    margin-left: 27%;
+    /* background-color: aqua; */
+  }
+
+  #text_1 {
+    font-family: "Arcade-In", sans-serif;
+    font-size: 700%;
+    color: white;
+    margin-left: 5%;
+  }
+  
+  #text_2 {
+    font-family: "Arcade-Out", sans-serif;
+    font-size: 700%;
+    color: purple;
+    position: absolute;
+    left: 5%;
+  }
+  
+  #menu {
+    width: 10%;
+    color: white;
+    font-family: "Arcade-In";
+    font-size: 300%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* background-color: brown; */
+  }
+  
+  #menu a {
+    margin-left: 10%;
+    margin-top: -5%;
+    text-decoration: none;
+    color: white;
+  }
+
+
+/* Indicações de conteúdo */
+
+#creators{
+    height: 80vh;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+#frame_creators{
+
+}
