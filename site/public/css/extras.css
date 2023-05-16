@@ -95,11 +95,27 @@ body {
 
 #frame_creators {
   background-image: url(../assets/cardboarder.png);
-  /* background-color: brown; */
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  opacity: 70%;
   height: 100%;
   width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* position: absolute; */
+  /* background-color: brown; */
+}
+
+.card{
+  width: 30%;
+  height: 60%;
+  background-image: url(../assets/card-frame.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#card1{
+  margin-left: 1%;
+  /* opacity: 90%; */
 }
