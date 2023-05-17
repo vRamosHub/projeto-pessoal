@@ -88,28 +88,46 @@ body {
 /* Indicações de conteúdo */
 
 #creators {
-  height: 80vh;
-  width: 60%;
+  height: 100vh;
+  width: 80vw;
   /* background-color: blue; */
 }
 
 #frame_creators {
   background-image: url(../assets/cardboarder-70.png);
-  background-size: 100% 90%;
+  background-size: 90% 100%;
   background-repeat: no-repeat;
+  background-position: center;
   height: 100%;
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   /* position: absolute; */
   /* background-color: brown; */
 }
 
-.card {
-  width: 28%;
+.header_cards{
+  height: 10%;
+  font-family: '8-bit';
+  font-size: 2vmax;
+  /* background-color: aquamarine; */
+}
+
+.cards{
+  display: flex;
   height: 60%;
+  /* background-color: blueviolet; */
+  /* flex-direction: column; */
+}
+
+
+
+.card {
+  width: 20vw;
+  height: 50vh;
   background-image: url(../assets/card-frame.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -121,6 +139,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  /* background-color: aqua; */
 }
 
 #card1 {
@@ -129,25 +149,54 @@ body {
   /* opacity: 90%; */
 }
 
-.card img {
+.streamer{
   width: 70%;
   z-index: 3;
   position: absolute;
   left: 15%;
-  top: 10%;
+  top: 15%;
   /* box-shadow: 2px 2px 4px 0px #000;*/
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
   border-radius: 2%;
 }
 
-#card3 img {
+#card3 .streamer {
   height: 50%;
   width: auto;
-  top: 5%;
+  top: 7%;
+  left: 17%;
 }
 
 .card h3 {
   font-family: "8-Bit";
   font-size: 1vmax;
-  margin-top: 35%;
+  /* margin-top: calc(45% + 30px); Só 35% quebra o código na resolução notebook */
+  /* background-color: red; */
 }
+
+.logos {
+  height: 30%;
+  width: 70%;
+  margin-top: 65%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: brown; */
+}
+
+.imagens_logos{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  /* background-color: blue; */
+}
+.youtube{
+  height: 60%;
+  /* background-color: aqua; */
+  /* width: 50%; */
+}
+
+
