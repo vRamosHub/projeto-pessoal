@@ -31,9 +31,9 @@
               <img class="streamer" src="assets/Levy.png" />
               <div class="logos">
                 <h3>Levy rozman</h3>
-                <div class="imagens_logos">                
-                  <img class="youtube" src="assets/youtube.png"/>
-                  <img class="youtube" src="assets/twitch-icon.png">
+                <div class="imagens_logos">
+                  <img class="youtube" src="assets/youtube.png" />
+                  <img class="youtube" src="assets/twitch-icon.png" />
                 </div>
               </div>
             </div>
@@ -41,9 +41,9 @@
               <img class="streamer" src="assets/Nakamura.png" />
               <div class="logos">
                 <h3>Hikaru Nakamura</h3>
-                <div class="imagens_logos">                
-                  <img class="youtube" src="assets/youtube.png"/>
-                  <img class="youtube" src="assets/twitch-icon.png">
+                <div class="imagens_logos">
+                  <img class="youtube" src="assets/youtube.png" />
+                  <img class="youtube" src="assets/twitch-icon.png" />
                 </div>
               </div>
             </div>
@@ -51,11 +51,10 @@
               <img class="streamer" src="assets/Raffa.png" />
               <div class="logos">
                 <h3>Raffa Chess</h3>
-                <div class="imagens_logos">                
-                  <img class="youtube" src="assets/youtube.png"/>
-                  <img class="youtube" src="assets/twitch-icon.png">
+                <div class="imagens_logos">
+                  <img class="youtube" src="assets/youtube.png" />
                 </div>
-              </div>  
+              </div>
             </div>
           </div>
         </div>
@@ -65,5 +64,29 @@
 </html>
 
 <script>
+  const icons = document.querySelectorAll(".youtube");
 
+  for (let i = 0; i < icons.length; i++) {
+    if (i == 0) {
+      icons[i].addEventListener("click", () => {
+        window.location.assign("https://www.youtube.com/@GothamChess");
+      });
+    } else if (i == 1) {
+      icons[i].addEventListener("click", () => {
+        window.location.assign("https://www.twitch.tv/gothamchess");
+      });
+    } else if (i == 2) {
+      icons[i].addEventListener("click", () => {
+        window.location.assign("https://www.youtube.com/@GMHikaru");
+      });
+    } else if (i == 3) {
+      icons[i].addEventListener("click", () => {
+        window.location.assign("https://www.twitch.tv/gmhikaru");
+      });
+    } else if (i == 4) {
+      icons[i].addEventListener("click", () => {
+        window.location.assign("https://www.youtube.com/@RaffaelChess");
+      });
+    }
+  }
 </script>
