@@ -14,7 +14,50 @@
     src: url("../fonts/Diary\ of\ an\ 8-bit\ mage.otf") format("truetype");
 }
 
+
+body{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
 #conteudo {
     width: 100vw;
     height: 100vh;
+    background-image: url('../assets/91656.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
 }
+
+#box_cadastro{
+    width: 50vw;
+    height: 50vh;
+    padding: 5%;
+    border-radius: 3%;
+
+    font-family: '8-bit';
+    font-size: 2vmax;
+
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+input{
+    font-family: '8-bit';
+    border-style: dashed;
+    border-radius: 3%;
+
+}
+
+
+
