@@ -1,20 +1,117 @@
 /* Fontes */
 @font-face {
-    font-family: "Arcade-In";
-    src: url("../fonts/8-bit\ Arcade\ In.ttf") format("truetype");
+  font-family: "Arcade-In";
+  src: url("../fonts/8-bit\ Arcade\ In.ttf") format("truetype");
 }
-  
+
 @font-face {
-    font-family: "Arcade-Out";
-    src: url("../fonts/8-bit\ Arcade\ Out.ttf") format("truetype");
+  font-family: "Arcade-Out";
+  src: url("../fonts/8-bit\ Arcade\ Out.ttf") format("truetype");
 }
-  
+
 @font-face {
-    font-family: "8-Bit";
-    src: url("../fonts/Diary\ of\ an\ 8-bit\ mage.otf") format("truetype");
+  font-family: "8-Bit";
+  src: url("../fonts/Diary\ of\ an\ 8-bit\ mage.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "2-Player";
+  src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 #conteudo {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/91656.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+#box_cadastro {
+  width: 30vmax;
+  height: 40vh;
+  padding: 2%;
+  border-radius: 3%;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  font-family: "2-Player";
+
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+#cadastro {
+  height: 20%;
+  width: 100%;
+  font-size: 1.8vmax;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.campo {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.2vmax;
+  margin-bottom: 5%;
+}
+
+input {
+  font-family: "2-Player";
+  border-style: dashed;
+  border-radius: 3%;
+  height: 30%;
+  width: 70%;
+  padding: 1%;
+  font-size: 0.8vmax;
+}
+
+/* Estilização botao 8-bit */
+
+.oito-bit {
+  height: 10%;
+  width: 30%;
+  font-size: 1.3vmax;
+  font-family: "2-Player";
+  border-radius: 2%;
+  text-decoration: none;
+  color: white;
+  background: #92cd41;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 6px solid black;
+  box-sizing: content-box;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background: #76c442;
+    box-shadow: inset -6px -6px 0px 0px #4aa52e;
+  }
+
+  &:active {
+    box-shadow: inset 4px 4px 0px 0px #4aa52e;
+  }
 }
