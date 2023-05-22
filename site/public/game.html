@@ -5,8 +5,247 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play || ChessBit</title>
+    <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
-    Salve mano
+    <div id="conteudo">
+        <div id="header">
+            <div id="menu">
+              <a href="index.html">
+                <span>MENU</span>
+              </a>
+            </div>
+            <div id="matches_text">
+              <span id="text_1">QUIZ</span>
+              <span id="text_2">QUIZ</span>
+            </div>
+        </div>
+
+        <div id="quiz">
+            <div class="elemento_quiz">
+                <div class="pergunta">
+                    <h3>Pergunta 1</h3>
+                </div>
+                <div class="respostas">
+                    <h4>Qual é o movimento básico do peão?</h4>
+                    <form action="" class="form_resposta">
+                        <input type="radio" name="resposta1" id="r1_opcao1" value="certa">
+                        <label for="r1_opcao1" class="1">Mover-se uma casa para frente</label> <br>
+
+                        <input type="radio" name="resposta1" id="r1_opcao2" value="errada">
+                        <label for="r1_opcao2" class="2">Mover-se em forma de L</label> <br>
+                        
+                        <input type="radio" name="resposta1" id="r1_opcao3" value="errada">
+                        <label for="r1_opcao3" class="3">Capturar duas peças em um único movimento</label> <br>
+                        
+                        <input type="radio" name="resposta1" id="r1_opcao4" value="errada">
+                        <label for="r1_opcao4" class="4">Mover-se diagonalmente para qualquer direção</label>
+                    </form> 
+                </div>
+                <div class="next">
+                    <h6 class="check">Check</h6>
+                    <h6 class="next_btn">Next</h6>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="elemento_quiz hidden">
+                <div class="pergunta">
+                    <h3>Pergunta 2</h3>
+                </div>
+                <div class="respostas">
+                    <h4>Qual peça se movimenta em forma de "L" e pode pular sobre outras peças?</h4>
+                    <form action="" class="form_resposta">
+                        <input type="radio" name="resposta2" id="r2_opcao1" value="errada">
+                        <label for="r2_opcao1" class="1">Rei</label> <br>
+
+                        <input type="radio" name="resposta2" id="r2_opcao2" value="errada">
+                        <label for="r2_opcao2" class="2">Peão</label> <br>
+                        
+                        <input type="radio" name="resposta2" id="r2_opcao3" value="errada">
+                        <label for="r2_opcao3" class="3">Torre</label> <br>
+                        
+                        <input type="radio" name="resposta2" id="r2_opcao4" value="certa">
+                        <label for="r2_opcao4" class="4">Cavalo</label>
+                    </form> 
+                </div>
+                <div class="next">
+                    <h6 class="previous_btn">Previous</h6>
+                    <h6 class="check">Check</h6>
+                    <h6 class="next_btn">Next</h6>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="elemento_quiz hidden">
+                <div class="pergunta">
+                    <h3>Pergunta 3</h3>
+                </div>
+                <div class="respostas">
+                    <h4>Qual peça pode se mover em qualquer direção em qualquer número de casas vazias?</h4>
+                    <form action="" class="form_resposta">
+                        <input type="radio" name="resposta3" id="r3_opcao1" value="errada">
+                        <label for="r3_opcao1" class="1">Bispo</label> <br>
+
+                        <input type="radio" name="resposta3" id="r3_opcao2" value="certa">
+                        <label for="r3_opcao2" class="2">Rainha</label> <br>
+                        
+                        <input type="radio" name="resposta3" id="r3_opcao3" value="errada">
+                        <label for="r3_opcao3" class="3">Cavalo</label> <br>
+                        
+                        <input type="radio" name="resposta3" id="r3_opcao4" value="errada">
+                        <label for="r3_opcao4" class="4">Rei</label>
+                    </form> 
+                </div>
+                <div class="next">
+                    <h6 class="previous_btn">Previous</h6>
+                    <h6 class="check">Check</h6>
+                    <h6 class="next_btn">Next</h6>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+
+            <div class="elemento_quiz hidden">
+                <div class="pergunta">
+                    <h3>Pergunta 4</h3>
+                </div>
+                <div class="respostas">
+                    <h4>Qual é o objetivo principal do jogo de xadrez?</h4>
+                    <form action="" class="form_resposta">
+                        <input type="radio" name="resposta4" id="r4_opcao1" value="certa">
+                        <label for="r4_opcao1" class="1">Encurralar o rei adversário</label> <br>
+
+                        <input type="radio" name="resposta4" id="r4_opcao2" value="errada">
+                        <label for="r4_opcao2" class="2">Capturar todas as peças adversárias</label> <br>
+                        
+                        <input type="radio" name="resposta4" id="r4_opcao3" value="errada">
+                        <label for="r4_opcao3" class="3">Chegar com o rei adversário na última fileira do tabuleiro</label> <br>
+                        
+                        <input type="radio" name="resposta4" id="r4_opcao4" value="errada">
+                        <label for="r4_opcao4" class="4">Controlar o maior número de casas possível</label>
+                    </form> 
+                </div>
+                <div class="next">
+                    <h6 class="previous_btn">Previous</h6>
+                    <h6 class="check">Check</h6>
+                    <h6 class="next_btn">Next</h6>
+                </div>
+            </div>
+
+
+            <!-- Pergunta 5 -->
+            <div class="elemento_quiz hidden">
+                <div class="pergunta">
+                    <h3>Pergunta 5</h3>
+                </div>
+                <div class="respostas">
+                    <h4>Qual peça pode mover-se na diagonal, capturando uma peça adversária ao ocupar sua casa, mas não pode pular outras peças?</h4>
+                    <form action="" class="form_resposta">
+                        <input type="radio" name="resposta5" id="r5_opcao1" value="certa">
+                        <label for="r5_opcao1" class="1">Bispo</label> <br>
+
+                        <input type="radio" name="resposta5" id="r5_opcao2" value="errada">
+                        <label for="r5_opcao2" class="2">Rainha</label> <br>
+                        
+                        <input type="radio" name="resposta5" id="r5_opcao3" value="errada">
+                        <label for="r5_opcao3" class="3">Torre</label> <br>
+                        
+                        <input type="radio" name="resposta5" id="r5_opcao4" value="errada">
+                        <label for="r5_opcao4" class="4">Cavalo</label>
+                    </form> 
+                </div>
+                <div class="next">
+                    <h6 class="previous_btn">Previous</h6>
+                    <h6 class="check">Check</h6>
+                    <h6 class="next_btn">Next</h6>
+                </div>
+            </div>
+
+            <!-- Pergunta 6 -->
+            <div class="elemento_quiz hidden">
+                <div class="pergunta">
+                    <h3>Pergunta 6</h3>
+                </div>
+                <div class="respostas">
+                    <h4>Quem ganhou uma batalha contra outros grandes mestres do mundo em sua época?</h4>
+                    <form action="" class="form_resposta">
+                        <input type="radio" name="resposta6" id="r6_opcao1" value="errada">
+                        <label for="r6_opcao1" class="1">Magnus Carlsen</label> <br>
+
+                        <input type="radio" name="resposta6" id="r6_opcao2" value="errada">
+                        <label for="r6_opcao2" class="2">Beth Harmon</label> <br>
+                        
+                        <input type="radio" name="resposta6" id="r6_opcao3" value="certa">
+                        <label for="r6_opcao3" class="3">Garry Kasparov</label> <br>
+                        
+                        <input type="radio" name="resposta6" id="r6_opcao4" value="errada">
+                        <label for="r6_opcao4" class="4">Stockfish</label>
+                    </form> 
+                </div>
+                <div class="next">
+                    <h6 class="previous_btn">Previous</h6>
+                    <h6 class="check">Check</h6>
+                    <h6 class="submit">Submit</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script>
+    const nexts = document.querySelectorAll(".next_btn");
+    const elementos_quiz = document.querySelectorAll(".elemento_quiz");
+    const forms = document.querySelectorAll(".form_resposta");
+    const checks = document.querySelectorAll(".check");
+    const previouses = document.querySelectorAll(".previous_btn");
+
+    for(let botao = 0; botao < nexts.length; botao++){
+        nexts[botao].addEventListener("click",()=>{
+            elementos_quiz[botao].classList.add("hidden");
+            elementos_quiz[botao + 1].classList.remove("hidden");
+        });
+    };
+
+    for(let previous_btn = 0; previous_btn < previouses.length; previous_btn++){
+        previouses[previous_btn].addEventListener("click",()=>{
+            elementos_quiz[previous_btn + 1].classList.add("hidden");
+            elementos_quiz[previous_btn].classList.remove("hidden");
+        });
+    };
+
+    for(let check_btn = 0; check_btn < checks.length; check_btn++){
+        checks[check_btn].addEventListener("click",()=>{
+            checar_resposta(check_btn+1);
+        });
+    };
+
+    function checar_resposta(num_form){
+        var respostas_possiveis = document.getElementsByName("resposta"+num_form);
+        for(var i = 0; i < respostas_possiveis.length; i++){
+            var resposta = respostas_possiveis[i];
+            var resposta_valor = respostas_possiveis[i].value;
+            var selector = 'label[for=' + respostas_possiveis[i].id + ']';
+            var label = document.querySelector(selector);
+            if(resposta_valor == 'certa'){
+                var label_certa = label;
+                var id_resposta_certa = resposta.id;
+                break;
+            };
+        };
+
+        var resposta_user = document.querySelector(`input[name=resposta${num_form}]:checked`).id;
+        var label_user = document.querySelector(`label[for=${resposta_user}]`);
+
+        if(id_resposta_certa == resposta_user){
+            label_user.classList.add("green");
+        } else{
+            label_certa.classList.add("green");
+            label_user.classList.add("red");
+        }
+    };
+
+
+
+</script>
