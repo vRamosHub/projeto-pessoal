@@ -19,56 +19,21 @@ CREATE TABLE usuario (
 
 select * from usuario;
 
-
-
-/*
-comando para sql server - banco remoto - ambiente de produção
-*/
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
+create table respostas(
+	idResposta INT PRIMARY KEY AUTO_INCREMENT,
+    resposta1 tinyint,
+    resposta2 tinyint,
+    resposta3 tinyint,
+    resposta4 tinyint,
+    resposta5 tinyint,
+    resposta6 tinyint,
+		constraint checkResp1 check(resposta1 in(0,1)),
+		constraint checkResp2 check(resposta2 in(0,1)),
+		constraint checkResp3 check(resposta3 in(0,1)),
+		constraint checkResp4 check(resposta4 in(0,1)),
+		constraint checkResp5 check(resposta5 in(0,1)),
+		constraint checkResp6 check(resposta6 in(0,1)),
+	fkUsuario int,
+		constraint fkRespostasUsuario foreign key (fkUsuario) references usuario(id)
 );
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descricao VARCHAR(300)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT FOREIGN KEY REFERENCES aquario(id)
-);
-
-/*
-comandos para criar usuário em banco de dados azure, sqlserver,
-com permissão de insert + update + delete + select
-*/
-
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
-
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
-
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+    

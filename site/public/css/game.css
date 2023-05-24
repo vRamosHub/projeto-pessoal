@@ -23,7 +23,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     background-image: url("../assets/stars-3.jpg");
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
@@ -32,8 +32,8 @@ body {
 }
 
 #conteudo {
-    width: 100%;
-    height: 100%;
+    width: 100;
+    height: 200vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -166,4 +166,36 @@ body {
 
 .red{
     background-color: red;
+}
+
+/* GRÁFICO */
+#grafico{
+    height: 100vh;
+    width: 100%;
+    margin-top: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* background-color: antiquewhite; */
+}
+
+#grafico_header{
+    height: 10vw;
+    width: 70vw;
+
+    /* background-color: yellow; */
+}
+
+#grafico_conteudo{
+    height: 80vh;
+    width: 70vw;
+
+    /* background-color: forestgreen; */
+}
+
+#grafico_botoes{
+    height: 10vh;
+    width: 70vw;
 }

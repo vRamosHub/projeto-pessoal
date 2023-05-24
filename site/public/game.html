@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play || ChessBit</title>
     <link rel="stylesheet" href="css/game.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="conteudo">
@@ -190,6 +191,19 @@
                 </div>
             </div>
         </div>
+
+        <!-- Div Métricas -->
+        <div id="grafico">
+            <div id="grafico_header">
+                <h2>Veja o ranking médio dos outros jogadores!</h2>
+            </div>
+            <div id="grafico_conteudo">
+                <canvas id=""></canvas>
+            </div>
+            <div id="grafico_botoes">
+
+            </div>
+        </div>
     </div>
 </body>
 </html>
@@ -222,7 +236,7 @@
     };
 
     function checar_resposta(num_form){
-        var respostas_possiveis = document.getElementsByName("resposta"+num_form);
+        var respostas_possiveis = document.getElementsByName("resposta" + num_form);
         for(var i = 0; i < respostas_possiveis.length; i++){
             var resposta = respostas_possiveis[i];
             var resposta_valor = respostas_possiveis[i].value;
@@ -246,6 +260,21 @@
         }
     };
 
+    // Adicionando funções de obtenção de gráficos via web-data-viz
 
+    var respostas_quiz = [0,0,0,0,0,0];
+
+    function submit(){
+
+        // Checando respostas para ver se todas foram validadas
+        checar_resposta(1);
+        checar_resposta(2);
+        checar_resposta(3);
+        checar_resposta(4);
+        checar_resposta(5);
+        checar_resposta(6);
+
+
+    }
 
 </script>
