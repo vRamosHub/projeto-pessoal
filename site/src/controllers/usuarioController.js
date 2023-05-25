@@ -44,6 +44,32 @@ function listar_user(req, res) {
         );
 }
 
+function cadastrar_quiz(req, res) {
+    var resposta1 = req.body.resposta1;
+    var resposta2 = req.body.resposta2;
+    var resposta3 = req.body.resposta3;
+    var resposta4 = req.body.resposta4;
+    var resposta5 = req.body.resposta5;
+    var resposta6 = req.body.resposta6;
+    var id_user = req.body.id_user;
+
+    usuarioModel.cadastrar_quiz(resposta1,resposta2,resposta3,resposta4,resposta5,resposta6,id_user)
+        .then(function (resultado) {
+            if (resultado.length >= 1) {
+                res.status(403).send("Esse email já foi cadastrado")
+                // res.status(200).json(resultado);
+            } else if(resultado.length == 0) {
+                res.status(200).send("Liberado!");
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -120,4 +146,5 @@ module.exports = {
     listar,
     testar,
     listar_user,
+    cadastrar_quiz,
 }

@@ -19,6 +19,8 @@ CREATE TABLE usuario (
 
 select * from usuario;
 
+select * from respostas;
+
 create table respostas(
 	idResposta INT PRIMARY KEY AUTO_INCREMENT,
     resposta1 tinyint,

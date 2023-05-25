@@ -18,7 +18,7 @@
         </div>
         <div class="campo">
           <span>Senha:</span>
-          <input id="senha_input" type="text" placeholder="******" />
+          <input id="senha_input" type="password" placeholder="******" />
         </div>
         <a class="oito-bit" onclick="entrar()">Play</a>
       </div>
@@ -31,10 +31,7 @@
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "") {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-      // finalizarAguardar();
+      console.log("Deixou campos em branco!!");
       return false;
     }
 

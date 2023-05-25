@@ -187,7 +187,7 @@
                 <div class="next">
                     <h6 class="previous_btn">Previous</h6>
                     <h6 class="check">Check</h6>
-                    <h6 class="submit">Submit</h6>
+                    <h6 class="submit" id="submit_btn">Submit</h6>
                 </div>
             </div>
         </div>
@@ -214,6 +214,9 @@
     const forms = document.querySelectorAll(".form_resposta");
     const checks = document.querySelectorAll(".check");
     const previouses = document.querySelectorAll(".previous_btn");
+    const submit_btn = document.getElementById("submit_btn")
+
+    var respostas_quiz = [0,0,0,0,0,0];
 
     for(let botao = 0; botao < nexts.length; botao++){
         nexts[botao].addEventListener("click",()=>{
@@ -235,8 +238,10 @@
         });
     };
 
+
     function checar_resposta(num_form){
         var respostas_possiveis = document.getElementsByName("resposta" + num_form);
+
         for(var i = 0; i < respostas_possiveis.length; i++){
             var resposta = respostas_possiveis[i];
             var resposta_valor = respostas_possiveis[i].value;
@@ -254,18 +259,20 @@
 
         if(id_resposta_certa == resposta_user){
             label_user.classList.add("green");
+            respostas_quiz[num_form - 1] = 1;
         } else{
             label_certa.classList.add("green");
             label_user.classList.add("red");
         }
     };
 
+    submit_btn.addEventListener("click", ()=>{
+        submit();
+    });
+
     // Adicionando funções de obtenção de gráficos via web-data-viz
 
-    var respostas_quiz = [0,0,0,0,0,0];
-
     function submit(){
-
         // Checando respostas para ver se todas foram validadas
         checar_resposta(1);
         checar_resposta(2);
@@ -274,7 +281,35 @@
         checar_resposta(5);
         checar_resposta(6);
 
+        fetch("/usuarios/respostas_quiz", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              resposta1: respostas_quiz[0],
+              resposta2: respostas_quiz[1],
+              resposta3: respostas_quiz[2],
+              resposta4: respostas_quiz[3],
+              resposta5: respostas_quiz[4],
+              resposta6: respostas_quiz[5],
+              id_user: sessionStorage.ID_USUARIO,
+            }),
+          })
+            .then(function (resposta) {
+              console.log("resposta: ", resposta);
 
-    }
+              if (resposta.ok) {
+                console.log("Tudo ok com a resposta!");
+              } else {
+                console.log("Erro ao cadastrar respostas quiz")
+                throw "Erro ao cadastrar respostas quiz";
+              };
+            });
+    };
+
+    // 
 
 </script>
