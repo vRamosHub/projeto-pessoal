@@ -1,456 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Play || ChessBit</title>
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/game.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/funcoes.js"></script>
     <style>
-        @font-face {
-            font-family: "2-Player";
-            src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
-        }
+      @font-face {
+        font-family: "2-Player";
+        src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="conteudo">
-        <div id="header">
-            <div id="menu">
-              <a href="index.html">
-                <span>MENU</span>
-              </a>
-            </div>
-            <div id="matches_text">
-              <span id="text_1">QUIZ</span>
-              <span id="text_2">QUIZ</span>
-            </div>
+      <div id="header">
+        <div id="menu">
+          <a href="index.html">
+            <span>MENU</span>
+          </a>
+        </div>
+        <div id="matches_text">
+          <span id="text_1">QUIZ</span>
+          <span id="text_2">QUIZ</span>
+        </div>
+      </div>
+
+      <div id="quiz">
+        <div class="elemento_quiz">
+          <div class="pergunta">
+            <h3>Pergunta 1</h3>
+          </div>
+          <div class="respostas">
+            <h4>Qual é o movimento básico do peão?</h4>
+            <form action="" class="form_resposta">
+              <input
+                type="radio"
+                name="resposta1"
+                id="r1_opcao1"
+                value="certa"
+              />
+              <label for="r1_opcao1" class="1"
+                >Mover-se uma casa para frente</label
+              >
+              <br />
+
+              <input
+                type="radio"
+                name="resposta1"
+                id="r1_opcao2"
+                value="errada"
+              />
+              <label for="r1_opcao2" class="2">Mover-se em forma de L</label>
+              <br />
+
+              <input
+                type="radio"
+                name="resposta1"
+                id="r1_opcao3"
+                value="errada"
+              />
+              <label for="r1_opcao3" class="3"
+                >Capturar duas peças em um único movimento</label
+              >
+              <br />
+
+              <input
+                type="radio"
+                name="resposta1"
+                id="r1_opcao4"
+                value="errada"
+              />
+              <label for="r1_opcao4" class="4"
+                >Mover-se diagonalmente para qualquer direção</label
+              >
+            </form>
+          </div>
+          <div class="next">
+            <h6 class="check">Check</h6>
+            <h6 class="next_btn">Next</h6>
+          </div>
         </div>
 
-        <div id="quiz">
-            <div class="elemento_quiz">
-                <div class="pergunta">
-                    <h3>Pergunta 1</h3>
-                </div>
-                <div class="respostas">
-                    <h4>Qual é o movimento básico do peão?</h4>
-                    <form action="" class="form_resposta">
-                        <input type="radio" name="resposta1" id="r1_opcao1" value="certa">
-                        <label for="r1_opcao1" class="1">Mover-se uma casa para frente</label> <br>
+        <!-- Pergunta 2 -->
+        <div class="elemento_quiz hidden">
+          <div class="pergunta">
+            <h3>Pergunta 2</h3>
+          </div>
+          <div class="respostas">
+            <h4>
+              Qual peça se movimenta em forma de "L" e pode pular sobre outras
+              peças?
+            </h4>
+            <form action="" class="form_resposta">
+              <input
+                type="radio"
+                name="resposta2"
+                id="r2_opcao1"
+                value="errada"
+              />
+              <label for="r2_opcao1" class="1">Rei</label> <br />
 
-                        <input type="radio" name="resposta1" id="r1_opcao2" value="errada">
-                        <label for="r1_opcao2" class="2">Mover-se em forma de L</label> <br>
-                        
-                        <input type="radio" name="resposta1" id="r1_opcao3" value="errada">
-                        <label for="r1_opcao3" class="3">Capturar duas peças em um único movimento</label> <br>
-                        
-                        <input type="radio" name="resposta1" id="r1_opcao4" value="errada">
-                        <label for="r1_opcao4" class="4">Mover-se diagonalmente para qualquer direção</label>
-                    </form> 
-                </div>
-                <div class="next">
-                    <h6 class="check">Check</h6>
-                    <h6 class="next_btn">Next</h6>
-                </div>
-            </div>
+              <input
+                type="radio"
+                name="resposta2"
+                id="r2_opcao2"
+                value="errada"
+              />
+              <label for="r2_opcao2" class="2">Peão</label> <br />
 
-            <!-- Pergunta 2 -->
-            <div class="elemento_quiz hidden">
-                <div class="pergunta">
-                    <h3>Pergunta 2</h3>
-                </div>
-                <div class="respostas">
-                    <h4>Qual peça se movimenta em forma de "L" e pode pular sobre outras peças?</h4>
-                    <form action="" class="form_resposta">
-                        <input type="radio" name="resposta2" id="r2_opcao1" value="errada">
-                        <label for="r2_opcao1" class="1">Rei</label> <br>
+              <input
+                type="radio"
+                name="resposta2"
+                id="r2_opcao3"
+                value="errada"
+              />
+              <label for="r2_opcao3" class="3">Torre</label> <br />
 
-                        <input type="radio" name="resposta2" id="r2_opcao2" value="errada">
-                        <label for="r2_opcao2" class="2">Peão</label> <br>
-                        
-                        <input type="radio" name="resposta2" id="r2_opcao3" value="errada">
-                        <label for="r2_opcao3" class="3">Torre</label> <br>
-                        
-                        <input type="radio" name="resposta2" id="r2_opcao4" value="certa">
-                        <label for="r2_opcao4" class="4">Cavalo</label>
-                    </form> 
-                </div>
-                <div class="next">
-                    <h6 class="previous_btn">Previous</h6>
-                    <h6 class="check">Check</h6>
-                    <h6 class="next_btn">Next</h6>
-                </div>
-            </div>
-
-            <!-- Pergunta 3 -->
-            <div class="elemento_quiz hidden">
-                <div class="pergunta">
-                    <h3>Pergunta 3</h3>
-                </div>
-                <div class="respostas">
-                    <h4>Qual peça pode se mover em qualquer direção em qualquer número de casas vazias?</h4>
-                    <form action="" class="form_resposta">
-                        <input type="radio" name="resposta3" id="r3_opcao1" value="errada">
-                        <label for="r3_opcao1" class="1">Bispo</label> <br>
-
-                        <input type="radio" name="resposta3" id="r3_opcao2" value="certa">
-                        <label for="r3_opcao2" class="2">Rainha</label> <br>
-                        
-                        <input type="radio" name="resposta3" id="r3_opcao3" value="errada">
-                        <label for="r3_opcao3" class="3">Cavalo</label> <br>
-                        
-                        <input type="radio" name="resposta3" id="r3_opcao4" value="errada">
-                        <label for="r3_opcao4" class="4">Rei</label>
-                    </form> 
-                </div>
-                <div class="next">
-                    <h6 class="previous_btn">Previous</h6>
-                    <h6 class="check">Check</h6>
-                    <h6 class="next_btn">Next</h6>
-                </div>
-            </div>
-
-            <!-- Pergunta 4 -->
-
-            <div class="elemento_quiz hidden">
-                <div class="pergunta">
-                    <h3>Pergunta 4</h3>
-                </div>
-                <div class="respostas">
-                    <h4>Qual é o objetivo principal do jogo de xadrez?</h4>
-                    <form action="" class="form_resposta">
-                        <input type="radio" name="resposta4" id="r4_opcao1" value="certa">
-                        <label for="r4_opcao1" class="1">Encurralar o rei adversário</label> <br>
-
-                        <input type="radio" name="resposta4" id="r4_opcao2" value="errada">
-                        <label for="r4_opcao2" class="2">Capturar todas as peças adversárias</label> <br>
-                        
-                        <input type="radio" name="resposta4" id="r4_opcao3" value="errada">
-                        <label for="r4_opcao3" class="3">Chegar com o rei adversário na última fileira do tabuleiro</label> <br>
-                        
-                        <input type="radio" name="resposta4" id="r4_opcao4" value="errada">
-                        <label for="r4_opcao4" class="4">Controlar o maior número de casas possível</label>
-                    </form> 
-                </div>
-                <div class="next">
-                    <h6 class="previous_btn">Previous</h6>
-                    <h6 class="check">Check</h6>
-                    <h6 class="next_btn">Next</h6>
-                </div>
-            </div>
-
-
-            <!-- Pergunta 5 -->
-            <div class="elemento_quiz hidden">
-                <div class="pergunta">
-                    <h3>Pergunta 5</h3>
-                </div>
-                <div class="respostas">
-                    <h4>Qual peça pode mover-se na diagonal, capturando uma peça adversária ao ocupar sua casa, mas não pode pular outras peças?</h4>
-                    <form action="" class="form_resposta">
-                        <input type="radio" name="resposta5" id="r5_opcao1" value="certa">
-                        <label for="r5_opcao1" class="1">Bispo</label> <br>
-
-                        <input type="radio" name="resposta5" id="r5_opcao2" value="errada">
-                        <label for="r5_opcao2" class="2">Rainha</label> <br>
-                        
-                        <input type="radio" name="resposta5" id="r5_opcao3" value="errada">
-                        <label for="r5_opcao3" class="3">Torre</label> <br>
-                        
-                        <input type="radio" name="resposta5" id="r5_opcao4" value="errada">
-                        <label for="r5_opcao4" class="4">Cavalo</label>
-                    </form> 
-                </div>
-                <div class="next">
-                    <h6 class="previous_btn">Previous</h6>
-                    <h6 class="check">Check</h6>
-                    <h6 class="next_btn">Next</h6>
-                </div>
-            </div>
-
-            <!-- Pergunta 6 -->
-            <div class="elemento_quiz hidden">
-                <div class="pergunta">
-                    <h3>Pergunta 6</h3>
-                </div>
-                <div class="respostas">
-                    <h4>Quem ganhou uma batalha contra outros grandes mestres do mundo em sua época?</h4>
-                    <form action="" class="form_resposta">
-                        <input type="radio" name="resposta6" id="r6_opcao1" value="errada">
-                        <label for="r6_opcao1" class="1">Magnus Carlsen</label> <br>
-
-                        <input type="radio" name="resposta6" id="r6_opcao2" value="errada">
-                        <label for="r6_opcao2" class="2">Beth Harmon</label> <br>
-                        
-                        <input type="radio" name="resposta6" id="r6_opcao3" value="certa">
-                        <label for="r6_opcao3" class="3">Garry Kasparov</label> <br>
-                        
-                        <input type="radio" name="resposta6" id="r6_opcao4" value="errada">
-                        <label for="r6_opcao4" class="4">Stockfish</label>
-                    </form> 
-                </div>
-                <div class="next">
-                    <h6 class="previous_btn">Previous</h6>
-                    <h6 class="check">Check</h6>
-                    <h6 class="submit" id="submit_btn">Submit</h6>
-                </div>
-            </div>
+              <input
+                type="radio"
+                name="resposta2"
+                id="r2_opcao4"
+                value="certa"
+              />
+              <label for="r2_opcao4" class="4">Cavalo</label>
+            </form>
+          </div>
+          <div class="next">
+            <h6 class="previous_btn">Previous</h6>
+            <h6 class="check">Check</h6>
+            <h6 class="next_btn">Next</h6>
+          </div>
         </div>
 
-        <!-- Div Métricas -->
-        <div id="grafico">
-            <div id="grafico_header">
-                <h2>Veja o ranking médio dos outros jogadores!</h2>
-            </div>
-            <div id="grafico_conteudo">
-                <canvas id="myChartCanvas"></canvas>
-            </div>
-            <div id="grafico_botoes">
-                <button onclick="obterDadosGrafico()"></button>
-            </div>
+        <!-- Pergunta 3 -->
+        <div class="elemento_quiz hidden">
+          <div class="pergunta">
+            <h3>Pergunta 3</h3>
+          </div>
+          <div class="respostas">
+            <h4>
+              Qual peça pode se mover em qualquer direção em qualquer número de
+              casas vazias?
+            </h4>
+            <form action="" class="form_resposta">
+              <input
+                type="radio"
+                name="resposta3"
+                id="r3_opcao1"
+                value="errada"
+              />
+              <label for="r3_opcao1" class="1">Bispo</label> <br />
+
+              <input
+                type="radio"
+                name="resposta3"
+                id="r3_opcao2"
+                value="certa"
+              />
+              <label for="r3_opcao2" class="2">Rainha</label> <br />
+
+              <input
+                type="radio"
+                name="resposta3"
+                id="r3_opcao3"
+                value="errada"
+              />
+              <label for="r3_opcao3" class="3">Cavalo</label> <br />
+
+              <input
+                type="radio"
+                name="resposta3"
+                id="r3_opcao4"
+                value="errada"
+              />
+              <label for="r3_opcao4" class="4">Rei</label>
+            </form>
+          </div>
+          <div class="next">
+            <h6 class="previous_btn">Previous</h6>
+            <h6 class="check">Check</h6>
+            <h6 class="next_btn">Next</h6>
+          </div>
         </div>
+
+        <!-- Pergunta 4 -->
+
+        <div class="elemento_quiz hidden">
+          <div class="pergunta">
+            <h3>Pergunta 4</h3>
+          </div>
+          <div class="respostas">
+            <h4>Qual é o objetivo principal do jogo de xadrez?</h4>
+            <form action="" class="form_resposta">
+              <input
+                type="radio"
+                name="resposta4"
+                id="r4_opcao1"
+                value="certa"
+              />
+              <label for="r4_opcao1" class="1"
+                >Encurralar o rei adversário</label
+              >
+              <br />
+
+              <input
+                type="radio"
+                name="resposta4"
+                id="r4_opcao2"
+                value="errada"
+              />
+              <label for="r4_opcao2" class="2"
+                >Capturar todas as peças adversárias</label
+              >
+              <br />
+
+              <input
+                type="radio"
+                name="resposta4"
+                id="r4_opcao3"
+                value="errada"
+              />
+              <label for="r4_opcao3" class="3"
+                >Chegar com o rei adversário na última fileira do
+                tabuleiro</label
+              >
+              <br />
+
+              <input
+                type="radio"
+                name="resposta4"
+                id="r4_opcao4"
+                value="errada"
+              />
+              <label for="r4_opcao4" class="4"
+                >Controlar o maior número de casas possível</label
+              >
+            </form>
+          </div>
+          <div class="next">
+            <h6 class="previous_btn">Previous</h6>
+            <h6 class="check">Check</h6>
+            <h6 class="next_btn">Next</h6>
+          </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="elemento_quiz hidden">
+          <div class="pergunta">
+            <h3>Pergunta 5</h3>
+          </div>
+          <div class="respostas">
+            <h4>
+              Qual peça pode mover-se na diagonal, capturando uma peça
+              adversária ao ocupar sua casa, mas não pode pular outras peças?
+            </h4>
+            <form action="" class="form_resposta">
+              <input
+                type="radio"
+                name="resposta5"
+                id="r5_opcao1"
+                value="certa"
+              />
+              <label for="r5_opcao1" class="1">Bispo</label> <br />
+
+              <input
+                type="radio"
+                name="resposta5"
+                id="r5_opcao2"
+                value="errada"
+              />
+              <label for="r5_opcao2" class="2">Rainha</label> <br />
+
+              <input
+                type="radio"
+                name="resposta5"
+                id="r5_opcao3"
+                value="errada"
+              />
+              <label for="r5_opcao3" class="3">Torre</label> <br />
+
+              <input
+                type="radio"
+                name="resposta5"
+                id="r5_opcao4"
+                value="errada"
+              />
+              <label for="r5_opcao4" class="4">Cavalo</label>
+            </form>
+          </div>
+          <div class="next">
+            <h6 class="previous_btn">Previous</h6>
+            <h6 class="check">Check</h6>
+            <h6 class="next_btn">Next</h6>
+          </div>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="elemento_quiz hidden">
+          <div class="pergunta">
+            <h3>Pergunta 6</h3>
+          </div>
+          <div class="respostas">
+            <h4>
+              Quem ganhou uma batalha contra outros grandes mestres do mundo em
+              sua época?
+            </h4>
+            <form action="" class="form_resposta">
+              <input
+                type="radio"
+                name="resposta6"
+                id="r6_opcao1"
+                value="errada"
+              />
+              <label for="r6_opcao1" class="1">Magnus Carlsen</label> <br />
+
+              <input
+                type="radio"
+                name="resposta6"
+                id="r6_opcao2"
+                value="errada"
+              />
+              <label for="r6_opcao2" class="2">Beth Harmon</label> <br />
+
+              <input
+                type="radio"
+                name="resposta6"
+                id="r6_opcao3"
+                value="certa"
+              />
+              <label for="r6_opcao3" class="3">Garry Kasparov</label> <br />
+
+              <input
+                type="radio"
+                name="resposta6"
+                id="r6_opcao4"
+                value="errada"
+              />
+              <label for="r6_opcao4" class="4">Stockfish</label>
+            </form>
+          </div>
+          <div class="next">
+            <h6 class="previous_btn">Previous</h6>
+            <h6 class="check">Check</h6>
+            <h6 class="submit" id="submit_btn">Submit</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Div Métricas -->
+      <div id="grafico">
+        <div id="grafico_header">
+          <h2>Veja o ranking médio dos outros jogadores!</h2>
+          <h5>Para exibir os gráficos dos usuários, faça o quiz!</h5>
+        </div>
+        <div id="grafico_conteudo">
+          <canvas id="myChartCanvas"></canvas>
+        </div>
+        <div id="grafico_botoes">
+          <!-- <button onclick="obterDadosGrafico()"></button> -->
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
 
 <script>
-    const nexts = document.querySelectorAll(".next_btn");
-    const elementos_quiz = document.querySelectorAll(".elemento_quiz");
-    const forms = document.querySelectorAll(".form_resposta");
-    const checks = document.querySelectorAll(".check");
-    const previouses = document.querySelectorAll(".previous_btn");
-    const submit_btn = document.getElementById("submit_btn");
-    var grafico;
+  const nexts = document.querySelectorAll(".next_btn");
+  const elementos_quiz = document.querySelectorAll(".elemento_quiz");
+  const forms = document.querySelectorAll(".form_resposta");
+  const checks = document.querySelectorAll(".check");
+  const previouses = document.querySelectorAll(".previous_btn");
+  const submit_btn = document.getElementById("submit_btn");
+  var grafico;
 
-    let proximaAtualizacao;
+  document.addEventListener("DOMContentLoaded", function () {
+    validarSessao();
+  });
 
-    var respostas_quiz = [0,0,0,0,0,0];
+  let proximaAtualizacao;
 
-    for(let botao = 0; botao < nexts.length; botao++){
-        nexts[botao].addEventListener("click",()=>{
-            elementos_quiz[botao].classList.add("hidden");
-            elementos_quiz[botao + 1].classList.remove("hidden");
-        });
-    };
+  var naoMostrarGrafico = [];
 
-    for(let previous_btn = 0; previous_btn < previouses.length; previous_btn++){
-        previouses[previous_btn].addEventListener("click",()=>{
-            elementos_quiz[previous_btn + 1].classList.add("hidden");
-            elementos_quiz[previous_btn].classList.remove("hidden");
-        });
-    };
+  var respostas_quiz = [0, 0, 0, 0, 0, 0];
 
-    for(let check_btn = 0; check_btn < checks.length; check_btn++){
-        checks[check_btn].addEventListener("click",()=>{
-            checar_resposta(check_btn+1);
-        });
-    };
+  var jaFezQuiz = false;
 
-
-    function checar_resposta(num_form){
-        var respostas_possiveis = document.getElementsByName("resposta" + num_form);
-
-        for(var i = 0; i < respostas_possiveis.length; i++){
-            var resposta = respostas_possiveis[i];
-            var resposta_valor = respostas_possiveis[i].value;
-            var selector = 'label[for=' + respostas_possiveis[i].id + ']';
-            var label = document.querySelector(selector);
-            if(resposta_valor == 'certa'){
-                var label_certa = label;
-                var id_resposta_certa = resposta.id;
-                break;
-            };
-        };
-
-        var resposta_user = document.querySelector(`input[name=resposta${num_form}]:checked`).id;
-        var label_user = document.querySelector(`label[for=${resposta_user}]`);
-
-        if(id_resposta_certa == resposta_user){
-            label_user.classList.add("green");
-            respostas_quiz[num_form - 1] = 1;
-        } else{
-            label_certa.classList.add("green");
-            label_user.classList.add("red");
-            respostas_quiz[num_form - 1] = 0;
-        }
-    };
-
-    submit_btn.addEventListener("click", ()=>{
-        submit();
+  for (let botao = 0; botao < nexts.length; botao++) {
+    nexts[botao].addEventListener("click", () => {
+      elementos_quiz[botao].classList.add("hidden");
+      elementos_quiz[botao + 1].classList.remove("hidden");
     });
+  }
 
-    // Adicionando funções de obtenção de gráficos via web-data-viz
+  for (let previous_btn = 0; previous_btn < previouses.length; previous_btn++) {
+    previouses[previous_btn].addEventListener("click", () => {
+      elementos_quiz[previous_btn + 1].classList.add("hidden");
+      elementos_quiz[previous_btn].classList.remove("hidden");
+    });
+  }
 
-    function submit(){
-        // Checando respostas para ver se todas foram validadas
-        checar_resposta(1);
-        checar_resposta(2);
-        checar_resposta(3);
-        checar_resposta(4);
-        checar_resposta(5);
-        checar_resposta(6);
+  for (let check_btn = 0; check_btn < checks.length; check_btn++) {
+    checks[check_btn].addEventListener("click", () => {
+      checar_resposta(check_btn + 1);
+    });
+  }
 
-        fetch("/usuarios/respostas_quiz", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              resposta1: respostas_quiz[0],
-              resposta2: respostas_quiz[1],
-              resposta3: respostas_quiz[2],
-              resposta4: respostas_quiz[3],
-              resposta5: respostas_quiz[4],
-              resposta6: respostas_quiz[5],
-              id_user: sessionStorage.ID_USUARIO,
-            }),
-          })
-            .then(function (resposta) {
-              console.log("resposta: ", resposta);
+  function checar_resposta(num_form) {
+    var respostas_possiveis = document.getElementsByName("resposta" + num_form);
 
-              if (resposta.ok) {
-                console.log("Tudo ok com a resposta!");
-              } else {
-                console.log("Erro ao cadastrar respostas quiz")
-                throw "Erro ao cadastrar respostas quiz";
-              };
-            });
-    };
-
-    // Função Obter dados do gráfico
-
-    function obterDadosGrafico() {
-        fetch(`/usuarios/get_respostas/`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta);
-                    plotarGrafico(resposta);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    };
-
-    function plotarGrafico(resposta) {
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Pontuação dos Usuários',
-                data: [],
-                backgroundColor:[
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor:[
-                    'rgb(153, 102, 255)'
-                ],
-                borderWidth: 1,
-                font:{
-                    color:'white'
-                }
-            }]
-        };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push("Pontos " + registro.Pontos);
-            dados.datasets[0].data.push(registro.qtdDePessoas);
-        }
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'bar',
-            data: dados,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks:{
-                            color:'white',
-                            font:{
-                                family: "'2-Player'",
-                                size: '12vmax',
-                            }
-                        },
-                    },
-                    x: {
-                        ticks:{
-                            color:'white',
-                            font:{
-                                family:'2-Player'
-                            }
-                        },
-                    }
-                },
-                plugins:{
-                    legend: {
-                        labels:{
-                            font:{
-                                family: "'2-Player', 'Lato'",
-                            },
-                            color: 'white',
-                        },
-                    },
-                },
-            },
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`myChartCanvas`),
-            config
-        );
-        grafico = myChart;
-        proximaAtualizacao = setInterval(() => atualizarGrafico(), 2000);
+    for (var i = 0; i < respostas_possiveis.length; i++) {
+      var resposta = respostas_possiveis[i];
+      var resposta_valor = respostas_possiveis[i].value;
+      var selector = "label[for=" + respostas_possiveis[i].id + "]";
+      var label = document.querySelector(selector);
+      if (resposta_valor == "certa") {
+        var label_certa = label;
+        var id_resposta_certa = resposta.id;
+        break;
+      }
     }
 
-    function atualizarGrafico() {
-        fetch(`/usuarios/get_respostas/`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta);
-                    grafico.config._config.data.labels = [];
-                    grafico.config._config.data.datasets[0].data = [];
-                    for (i = 0; i < resposta.length; i++) {
-                        var registro = resposta[i];
-                        grafico.config._config.data.labels.push("Pontos " + registro.Pontos);
-                        grafico.config._config.data.datasets[0].data.push(registro.qtdDePessoas);
-                    };
-                    grafico.update();
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });        
+    if (
+      document.querySelector(`input[name=resposta${num_form}]:checked`) == null
+    ) {
+      alert(`A questão ${num_form} não foi respondida!`);
+      naoMostrarGrafico[num_form - 1] = false;
+      return false;
+    } else {
+      var resposta_user = document.querySelector(
+        `input[name=resposta${num_form}]:checked`
+      ).id;
+      var label_user = document.querySelector(`label[for=${resposta_user}]`);
+
+      if (id_resposta_certa == resposta_user) {
+        label_user.classList.add("green");
+        respostas_quiz[num_form - 1] = 1;
+      } else {
+        label_certa.classList.add("green");
+        label_user.classList.add("red");
+        respostas_quiz[num_form - 1] = 0;
+      }
+
+      naoMostrarGrafico[num_form - 1] = true;
+    }
+  }
+
+  submit_btn.addEventListener("click", () => {
+    submit();
+  });
+
+  // Adicionando funções de obtenção de gráficos via web-data-viz
+
+  function submit() {
+    // Checando respostas para ver se todas foram validadas
+    checar_resposta(1);
+    checar_resposta(2);
+    checar_resposta(3);
+    checar_resposta(4);
+    checar_resposta(5);
+    checar_resposta(6);
+
+    if (jaFezQuiz) {
+      alert(
+        "Você já fez uma vez o quiz!\n Para fazer de novo, recarregue a página"
+      );
+      return false;
+    }
+
+    for (var count = 0; count < naoMostrarGrafico.length; count++) {
+      if (!naoMostrarGrafico[count]) {
+        return false;
+      }
+    }
+
+    fetch("/usuarios/respostas_quiz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        resposta1: respostas_quiz[0],
+        resposta2: respostas_quiz[1],
+        resposta3: respostas_quiz[2],
+        resposta4: respostas_quiz[3],
+        resposta5: respostas_quiz[4],
+        resposta6: respostas_quiz[5],
+        id_user: sessionStorage.ID_USUARIO,
+      }),
+    }).then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        console.log("Tudo ok com a resposta!");
+      } else {
+        console.log("Erro ao cadastrar respostas quiz");
+        throw "Erro ao cadastrar respostas quiz";
+      }
+    });
+
+    jaFezQuiz = true;
+    obterDadosGrafico();
+  }
+
+  // Função Obter dados do gráfico
+
+  function obterDadosGrafico() {
+    fetch(`/usuarios/get_respostas/`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta);
+            plotarGrafico(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+  function plotarGrafico(resposta) {
+    console.log("iniciando plotagem do gráfico...");
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Pontuação dos Usuários",
+          data: [],
+          backgroundColor: ["rgba(153, 102, 255, 0.2)"],
+          borderColor: ["rgb(153, 102, 255)"],
+          borderWidth: 1,
+          font: {
+            color: "white",
+          },
+        },
+      ],
     };
+
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    );
+    console.log(resposta);
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      labels.push("Pontos " + registro.Pontos);
+      dados.datasets[0].data.push(registro.qtdDePessoas);
+    }
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log("----------------------------------------------");
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "bar",
+      data: dados,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: "white",
+              font: {
+                family: "'2-Player'",
+                size: "12vmax",
+              },
+            },
+          },
+          x: {
+            ticks: {
+              color: "white",
+              font: {
+                family: "2-Player",
+              },
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            labels: {
+              font: {
+                family: "'2-Player', 'Lato'",
+              },
+              color: "white",
+            },
+          },
+        },
+      },
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(document.getElementById(`myChartCanvas`), config);
+    grafico = myChart;
+    proximaAtualizacao = setInterval(() => atualizarGrafico(), 2000);
+  }
+
+  function atualizarGrafico() {
+    fetch(`/usuarios/get_respostas/`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta);
+            grafico.config._config.data.labels = [];
+            grafico.config._config.data.datasets[0].data = [];
+            for (i = 0; i < resposta.length; i++) {
+              var registro = resposta[i];
+              grafico.config._config.data.labels.push(
+                "Pontos " + registro.Pontos
+              );
+              grafico.config._config.data.datasets[0].data.push(
+                registro.qtdDePessoas
+              );
+            }
+            grafico.update();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
 </script>

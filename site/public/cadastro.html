@@ -36,13 +36,19 @@
             placeholder="******"
           />
         </div>
-        <a class="oito-bit" onclick="cadastrar()">Play</a>
+        <div class="botoes">
+          <a class="oito-bit" onclick="login()">Login</a>
+          <a class="oito-bit" onclick="cadastrar()">Next</a>
+        </div>
       </div>
     </div>
   </body>
 </html>
 
 <script>
+  function login() {
+    window.location.href = "login.html";
+  }
   function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
