@@ -22,7 +22,7 @@ function listar(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
-}
+};
 
 function listar_user(req, res) {
     var email = req.body.emailServer;
@@ -44,6 +44,8 @@ function listar_user(req, res) {
         );
 }
 
+
+// Função Para cadastrar o quiz
 function cadastrar_quiz(req, res) {
     var resposta1 = req.body.resposta1;
     var resposta2 = req.body.resposta2;
@@ -55,11 +57,28 @@ function cadastrar_quiz(req, res) {
 
     usuarioModel.cadastrar_quiz(resposta1,resposta2,resposta3,resposta4,resposta5,resposta6,id_user)
         .then(function (resultado) {
-            if (resultado.length >= 1) {
-                res.status(403).send("Esse email já foi cadastrado")
-                // res.status(200).json(resultado);
-            } else if(resultado.length == 0) {
-                res.status(200).send("Liberado!");
+            if (resultado) {
+                res.status(200).send("Quiz Cadastrado");
+            } else{
+                res.status(403).send("Quiz não cadastrado")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+};
+
+// Função para receber resposta do quiz
+function get_respostas(req, res) {
+    usuarioModel.receber_dados()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Não encontramos dados no BD")
             }
         }).catch(
             function (erro) {
@@ -147,4 +166,5 @@ module.exports = {
     testar,
     listar_user,
     cadastrar_quiz,
+    get_respostas,
 }

@@ -38,4 +38,6 @@ create table respostas(
 	fkUsuario int,
 		constraint fkRespostasUsuario foreign key (fkUsuario) references usuario(id)
 );
-    
+
+-- 
+select  count(resposta1 + resposta2 + resposta3 + resposta4 + resposta5 + resposta6) as qtdDePessoas ,resposta1 + resposta2 + resposta3 + resposta4 + resposta5 + resposta6 as Pontos from respostas group by resposta1 + resposta2 + resposta3 + resposta4 + resposta5 + resposta6 order by Pontos;

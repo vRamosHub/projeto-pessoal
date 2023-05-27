@@ -7,6 +7,12 @@
     <title>Play || ChessBit</title>
     <link rel="stylesheet" href="css/game.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @font-face {
+            font-family: "2-Player";
+            src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+        }
+    </style>
 </head>
 <body>
     <div id="conteudo">
@@ -198,10 +204,10 @@
                 <h2>Veja o ranking médio dos outros jogadores!</h2>
             </div>
             <div id="grafico_conteudo">
-                <canvas id=""></canvas>
+                <canvas id="myChartCanvas"></canvas>
             </div>
             <div id="grafico_botoes">
-
+                <button onclick="obterDadosGrafico()"></button>
             </div>
         </div>
     </div>
@@ -214,7 +220,10 @@
     const forms = document.querySelectorAll(".form_resposta");
     const checks = document.querySelectorAll(".check");
     const previouses = document.querySelectorAll(".previous_btn");
-    const submit_btn = document.getElementById("submit_btn")
+    const submit_btn = document.getElementById("submit_btn");
+    var grafico;
+
+    let proximaAtualizacao;
 
     var respostas_quiz = [0,0,0,0,0,0];
 
@@ -263,6 +272,7 @@
         } else{
             label_certa.classList.add("green");
             label_user.classList.add("red");
+            respostas_quiz[num_form - 1] = 0;
         }
     };
 
@@ -310,6 +320,137 @@
             });
     };
 
-    // 
+    // Função Obter dados do gráfico
 
+    function obterDadosGrafico() {
+        fetch(`/usuarios/get_respostas/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta);
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    };
+
+    function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Pontuação dos Usuários',
+                data: [],
+                backgroundColor:[
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor:[
+                    'rgb(153, 102, 255)'
+                ],
+                borderWidth: 1,
+                font:{
+                    color:'white'
+                }
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push("Pontos " + registro.Pontos);
+            dados.datasets[0].data.push(registro.qtdDePessoas);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks:{
+                            color:'white',
+                            font:{
+                                family: "'2-Player'",
+                                size: '12vmax',
+                            }
+                        },
+                    },
+                    x: {
+                        ticks:{
+                            color:'white',
+                            font:{
+                                family:'2-Player'
+                            }
+                        },
+                    }
+                },
+                plugins:{
+                    legend: {
+                        labels:{
+                            font:{
+                                family: "'2-Player', 'Lato'",
+                            },
+                            color: 'white',
+                        },
+                    },
+                },
+            },
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas`),
+            config
+        );
+        grafico = myChart;
+        proximaAtualizacao = setInterval(() => atualizarGrafico(), 2000);
+    }
+
+    function atualizarGrafico() {
+        fetch(`/usuarios/get_respostas/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta);
+                    grafico.config._config.data.labels = [];
+                    grafico.config._config.data.datasets[0].data = [];
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        grafico.config._config.data.labels.push("Pontos " + registro.Pontos);
+                        grafico.config._config.data.datasets[0].data.push(registro.qtdDePessoas);
+                    };
+                    grafico.update();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });        
+    };
 </script>
