@@ -108,25 +108,15 @@ body {
 
 #TEXTO {
   font-family: "2-Player";
-  font-size: 1.2vmax;
+  font-size: 1.3vmax;
   width: 60%;
+  line-height: 180%;
 
-  letter-spacing: .15em; /* Espaçamento entre as letras */
-  animation:
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+  /* background-color: blueviolet; */
+  letter-spacing: 0.15em; /* Espaçamento entre as letras */
+  animation: typing 3.5s steps(40, end);
 
-  border-right: .15em solid purple;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: purple; }
+  /* border-right: 0.15em solid purple; */
 }
 
 /* ------------------------------------------------------- */
@@ -162,7 +152,7 @@ body {
   /* background-color: blue; */
   /* box-shadow: 10px 5px 5px black; */
   height: 100%;
-  width: 20%;
+  width: 20vw;
 }
 
 .container_card {
@@ -212,29 +202,30 @@ body {
   /* display: none; */
 }
 .pieces {
-  height: 50%;
+  height: 70%;
   width: 50%;
   position: absolute;
-  left: 23%;
-  top: 23%;
+  left: 15%;
+  top: 15%;
 }
 
 .desc_card {
   position: absolute;
   height: 30%;
-  width: 60%;
-  left: 10%;
-  top: 10%;
+  width: 55%;
+  left: 5%;
+  top: 25%;
   color: black;
-  font-family: "8-bit";
-  font-size: 0.9vmax;
+  font-family: "2-Player";
+  font-size: 0.7vmax;
 }
 
 .bloco_texto {
   position: absolute;
-  height: 60%;
+  height: 65%;
   width: 90%;
-  left: 5%;
-  top: 7%;
+  left: -3%;
+  top: 20%;
   transform: rotatez(270deg);
+  opacity: 50%;
 }
