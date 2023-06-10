@@ -37,11 +37,37 @@ body {
   justify-content: center;
   align-items: center;
   /* background-color: blue; */
+
+  position: relative;
+}
+
+#menu {
+  width: 10%;
+  color: white;
+  font-family: "Arcade-In";
+  font-size: 3vmax;
+  /* background-color: beige; */
+
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 2vw;
+  top: 5vh;
+  /* left: 0; */
+  /* top: center; */
+}
+
+#menu a {
+  /* margin-left: 10%; */
+  /* margin-top: -5%; */
+  text-decoration: none;
+  color: white;
+
 }
 
 #box_cadastro {
-  width: 30vmax;
-  height: 50vh;
+  width: 35vmax;
+  height: 65vh;
   padding: 2%;
   border-radius: 3%;
   /* border: 0.1rem solid #000; */
@@ -49,7 +75,7 @@ body {
 
   font-family: "2-Player";
 
-  color: antiquewhite;
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,6 +103,8 @@ body {
   align-items: center;
   flex-direction: column;
   font-size: 1.2vmax;
+
+  margin-bottom: 2%;
 }
 
 input {
@@ -88,6 +116,7 @@ input {
   padding: 1%;
   padding-left: 2%;
   font-size: 0.6vmax;
+  margin-top: 2%;
 }
 
 .oito-bit {

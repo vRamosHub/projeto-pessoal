@@ -65,6 +65,7 @@ a {
 
 #sound-image:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 /* Definindo imagem de plano de fundo */
@@ -78,7 +79,6 @@ a {
   z-index: -2;
   margin: 0;
   padding: 0;
-  filter: blur(3px);
   height: 100%;
   width: 100%;
 }

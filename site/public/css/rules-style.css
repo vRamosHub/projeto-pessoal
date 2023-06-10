@@ -153,6 +153,8 @@ body {
   /* box-shadow: 10px 5px 5px black; */
   height: 100%;
   width: 20vw;
+
+  /* background-color: aqua; */
 }
 
 .container_card {
@@ -161,6 +163,8 @@ body {
   position: relative;
   perspective: 1000px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   /* background-color: burlywood; */
 }
 
@@ -172,6 +176,10 @@ body {
   transform-style: preserve-3d;
   transition: all 0.5s ease;
   transform: rotateY(0deg);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .back {
@@ -182,6 +190,10 @@ body {
   transform-style: preserve-3d;
   transition: all 0.5s ease;
   transform: rotateY(180deg);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container_card:hover .front {
@@ -205,27 +217,37 @@ body {
   height: 70%;
   width: 50%;
   position: absolute;
-  left: 15%;
-  top: 15%;
+  /* left: 15%;
+  top: 15%; */
 }
 
 .desc_card {
   position: absolute;
-  height: 30%;
+  height: 70%;
   width: 55%;
-  left: 5%;
-  top: 25%;
   color: black;
   font-family: "2-Player";
   font-size: 0.7vmax;
+
+  margin: 0;
+  padding: 0;
+  margin-top: 4%;
+  margin-left: 2%;
+
+  /* background-color: blue; */
 }
 
 .bloco_texto {
   position: absolute;
   height: 65%;
   width: 90%;
-  left: -3%;
-  top: 20%;
   transform: rotatez(270deg);
   opacity: 50%;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin-left: 20%;
+  margin-top: 0;
 }

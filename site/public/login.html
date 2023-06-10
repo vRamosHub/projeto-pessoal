@@ -10,6 +10,11 @@
   </head>
   <body>
     <div id="conteudo">
+      <div id="menu">
+        <a href="index.html">
+          <span>MENU</span>
+        </a>
+      </div>
       <div id="box_cadastro">
         <div id="cadastro">Login</div>
         <div class="campo">
@@ -55,7 +60,7 @@
       }),
     })
       .then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
+        // console.log("ESTOU NO THEN DO entrar()!");
 
         if (resposta.ok) {
           console.log(resposta);
@@ -73,7 +78,7 @@
             }, 1000); // apenas para exibir o loading
           });
         } else {
-          console.log("Houve um erro ao tentar realizar o login!");
+          alert("Houve um erro ao tentar realizar o login!\nVerifique se seu email e/ou senha estão corretos!");
 
           resposta.text().then((texto) => {
             console.error(texto);

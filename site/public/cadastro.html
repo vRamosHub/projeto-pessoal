@@ -10,6 +10,11 @@
   </head>
   <body>
     <div id="conteudo">
+      <div id="menu">
+        <a href="index.html">
+          <span>MENU</span>
+        </a>
+      </div>
       <div id="box_cadastro">
         <div id="cadastro">Cadastre-se</div>
         <div class="campo">
@@ -65,16 +70,16 @@
     ) {
       // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
       // finalizarAguardar();
-      console.log("Tem campos em branco!");
+      alert("Tem campos em branco!");
       return false;
     } else if (senhaVar != confirmacaoSenhaVar) {
-      console.log("Senhas diferentes!");
+      alert("Senhas diferentes!");
       return false;
     } else if (senhaVar.length < 6) {
-      console.log("Senha deve ser maior que 6 caracteres");
+      alert("Senha deve ser maior que 6 caracteres");
       return false;
     } else if (emailVar.indexOf("@") == -1) {
-      console.log("Seu email deve conter @");
+      alert("Seu email deve conter @");
       return false;
     }
 
@@ -139,7 +144,7 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        console.log("Já tem um email desse cadastrado");
+        alert("Você já cadastrou este email!");
         // finalizarAguardar();
       });
 

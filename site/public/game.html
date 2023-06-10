@@ -27,6 +27,9 @@
           <span id="text_1">QUIZ</span>
           <span id="text_2">QUIZ</span>
         </div>
+        <div id="logout" onclick="logout()">
+          <span>LOGOUT</span>
+        </div>
       </div>
 
       <div id="quiz">
@@ -355,7 +358,7 @@
       <div id="grafico">
         <div id="grafico_header">
           <h2>Veja o ranking médio dos outros jogadores!</h2>
-          <h5>Para exibir os gráficos dos usuários, faça o quiz!</h5>
+          <h5 id="subtituloGrafico">Para exibir os gráficos dos usuários, faça o quiz!</h5>
         </div>
         <div id="grafico_conteudo">
           <canvas id="myChartCanvas"></canvas>
@@ -375,11 +378,9 @@
   const checks = document.querySelectorAll(".check");
   const previouses = document.querySelectorAll(".previous_btn");
   const submit_btn = document.getElementById("submit_btn");
-  var grafico;
+  const subtitulo = document.getElementById("subtituloGrafico");
 
-  document.addEventListener("DOMContentLoaded", function () {
-    validarSessao();
-  });
+  var grafico;
 
   let proximaAtualizacao;
 
@@ -388,6 +389,8 @@
   var respostas_quiz = [0, 0, 0, 0, 0, 0];
 
   var jaFezQuiz = false;
+
+  validarSessao();
 
   for (let botao = 0; botao < nexts.length; botao++) {
     nexts[botao].addEventListener("click", () => {
@@ -411,6 +414,15 @@
 
   function checar_resposta(num_form) {
     var respostas_possiveis = document.getElementsByName("resposta" + num_form);
+
+    for (var i = 0; i < respostas_possiveis.length; i++) {
+      var resposta = respostas_possiveis[i];
+      var selector = "label[for=" + respostas_possiveis[i].id + "]";
+      var label = document.querySelector(selector);
+
+      label.classList.remove("green");
+      label.classList.remove("red");
+    }
 
     for (var i = 0; i < respostas_possiveis.length; i++) {
       var resposta = respostas_possiveis[i];
@@ -505,6 +517,7 @@
     });
 
     jaFezQuiz = true;
+    subtitulo.style.display = 'none';
     obterDadosGrafico();
   }
 
@@ -647,5 +660,10 @@
           `Erro na obtenção dos dados p/ gráfico: ${error.message}`
         );
       });
+  }
+
+  function logout(){
+    window.sessionStorage.clear();
+    window.location.href = './login.html'
   }
 </script>

@@ -160,15 +160,18 @@ body {
 }
 
 .gif {
-  width: 50%;
+  width: 40%;
   height: 100%;
   /* background-color: blanchedalmond; */
 }
 
 .texto {
-  width: 50%;
+  width: 60%;
   height: 100%;
-  /* background-color: black; */
+
+  display: flex;
+  align-items: center;
+  /* background-color: white; */
 }
 
 .gif img {
@@ -179,9 +182,11 @@ body {
 
 .texto span {
   display: inline-block;
-  width: 80%;
+  width: 90%;
   font-family: "8-bit";
-  margin-top: 20%;
+  font-size: 1.1vmax;
+  margin-top: -15%;
+  line-height: 18px;
 }
 
 /* CARDS PLAYERS: */

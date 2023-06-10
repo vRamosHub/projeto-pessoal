@@ -31,7 +31,7 @@
         <div class="conteudo-opcoes">
           <div class="options">
             <img src="assets/Selector2.png" class="seta hidden" id="seta1" />
-            <a href="cadastro.html"><span class="options_text">START QUIZ</span></a>
+            <a id="aQuiz" onclick="cadastrarOuQuiz()"><span class="options_text">START QUIZ</span></a>
           </div>
           <div class="options">
             <img src="assets/Selector2.png" class="seta hidden" id="seta2" />
@@ -86,6 +86,14 @@
         opcoes[i].classList.add("hidden");
         select_option_sound.load();
       });
-    }
+    };
   });
+
+  function cadastrarOuQuiz(){
+    if(!sessionStorage.ID_USUARIO){
+      window.location.href = "./cadastro.html";
+    } else{
+      window.location.href = "./game.html";
+    }
+  }
 </script>

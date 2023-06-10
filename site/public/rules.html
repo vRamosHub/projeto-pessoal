@@ -172,7 +172,7 @@
                 <li>O Rei captura da mesma forma</li>
                 <br />
                 <li>
-                  O valor do Rei é ilimitado, pois com o rei encurralado você
+                  Seu valor é ilimitado, pois se encurralado você
                   perde o jogo.
                 </li>
                 <br />
@@ -224,6 +224,8 @@
   }
 
   async function escrever_textos() {
+    await new Promise((resolve) => setTimeout(resolve,400));
+
     limpar_paragrafo();
     await type(texto1);
 

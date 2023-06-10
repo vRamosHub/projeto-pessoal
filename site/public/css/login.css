@@ -39,16 +39,40 @@ body {
   /* background-color: blue; */
 }
 
+#menu {
+  width: 10%;
+  color: white;
+  font-family: "Arcade-In";
+  font-size: 3vmax;
+  /* background-color: beige; */
+
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 2vw;
+  top: 5vh;
+  /* left: 0; */
+  /* top: center; */
+}
+
+#menu a {
+  /* margin-left: 10%; */
+  /* margin-top: -5%; */
+  text-decoration: none;
+  color: white;
+
+}
+
 #box_cadastro {
   width: 30vmax;
-  height: 40vh;
+  height: 50vh;
   padding: 2%;
   border-radius: 3%;
   background-color: rgba(255, 255, 255, 0.1);
 
   font-family: "2-Player";
 
-  color: antiquewhite;
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,6 +110,7 @@ input {
   width: 70%;
   padding: 1%;
   font-size: 0.8vmax;
+  margin-top: 2%;
 }
 
 /* Estilização botao 8-bit */
