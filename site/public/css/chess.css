@@ -1,0 +1,170 @@
+/* Fontes */
+@font-face {
+    font-family: "Arcade-In";
+    src: url("../fonts/8-bit\ Arcade\ In.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Arcade-Out";
+    src: url("../fonts/8-bit\ Arcade\ Out.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "8-Bit";
+    src: url("../fonts/Diary\ of\ an\ 8-bit\ mage.otf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "2-Player";
+    src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../assets/stars-3.jpg");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* backdrop-filter: blur(2px); */
+  }
+  
+  #conteudo {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: aqua; */
+  }
+  
+  #header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 20vh;
+    position: relative;
+    /* background-color: red; */
+  }
+  
+  #matches_text {
+    position: relative;
+    display: inline;
+  
+    width: 80%;
+    height: 80%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* background-color: aqua; */
+  }
+  
+  #menu {
+    width: 10%;
+    color: white;
+    font-family: "Arcade-In";
+    font-size: 3vmax;
+    /* background-color: beige; */
+  
+    display: flex;
+    justify-content: center;
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: center; */
+  }
+  
+  #menu a {
+    /* margin-left: 10%; */
+    /* margin-top: -5%; */
+    text-decoration: none;
+    color: white;
+  
+  }
+  
+  
+  #text_1 {
+    font-family: "Arcade-In", sans-serif;
+    font-size: 700%;
+    color: white;
+    margin-top: -2%;
+  
+    display: inline-block;
+  }
+  
+  #text_2 {
+    font-family: "Arcade-Out", sans-serif;
+    font-size: 700%;
+    color: purple;
+    position: absolute;
+    margin: 0;
+    margin-top: -2%;
+    display: inline-block;
+    /* left: 0; */
+  }
+  
+  #logout {
+    width: 10%;
+    color: white;
+    font-family: 'Arcade-In';
+    font-size: 3vmax;
+  
+    display: flex;
+    justify-content: center;
+  
+    cursor: pointer;
+  
+    /* background-color: blueviolet; */
+  }
+
+  /* Definindo style tabuleiro e o status das jogadas */
+
+  #chessboard_status{
+    width: 80vw;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: forestgreen; */
+  }
+
+  #chessboard_status h5{
+    font-size: 2vmax;
+    color: white;
+    font-family: '2-Player';
+    text-shadow: 2px 2px rgb(49, 49, 49);
+    font-weight: bold;
+
+    margin: 1%;
+
+  }
+
+  #myBoard{
+    width: 35%;
+    height: 80%;
+  }
+
+  #div_status{
+    height: 10%;
+
+    font-family: '2-Player';
+    color: white;
+
+    display: flex;
+    justify-content: center;
+
+    /* background-color: blue; */
+  }
+
+
+  .cursor .piece-417db:hover{
+    cursor: pointer;
+  }
+

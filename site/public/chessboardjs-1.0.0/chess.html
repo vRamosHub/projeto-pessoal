@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="node_modules/chess.js/chess.js"></script>
+      
+    <title>Chess || ChessBit</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/chessboard-1.0.0.js"></script>
+    <script src="js/chessboard-1.0.0.min.js"></script>
+    <link rel="stylesheet" href="css/chessboard-1.0.0.css" />
+    <link rel="stylesheet" href="css/chessboard-1.0.0.min.css" />
+    <link rel="stylesheet" href="../css/chess.css">
+  </head>
+  <body>
+    <!-- <div id="tabuleiro" style="width: 480px"></div>
+    <button id="startBtn">COMECAR</button> -->
+
+    <div id="conteudo">
+      <div id="header">
+        <div id="menu">
+          <a href="index.html">
+            <span>MENU</span>
+          </a>
+        </div>
+        <div id="matches_text">
+          <span id="text_1">CHESS</span>
+          <span id="text_2">CHESS</span>
+        </div>
+        <div id="logout" onclick="logout()">
+          <span>LOGOUT</span>
+        </div>
+      </div>
+
+      <div id="chessboard_status">
+        <h5 style="display: none;">Arraste as peças para jogar!</h5>
+        <h5 onclick="jogar()">Jogar</h5>
+        <div id="myBoard" class="cursor"></div>
+        <div id="div_status">
+          <label>Status:</label>
+          <div id="status"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
+<script>
+
+  function makeRandomMove() {
+    var possibleMoves = game.moves();
+
+    // exit if the game is over
+    if (game.game_over()) return;
+
+    var randomIdx = Math.floor(Math.random() * possibleMoves.length);
+    game.move(possibleMoves[randomIdx]);
+    // board.position(game.fen());
+
+    // window.setTimeout(makeRandomMove, 500);
+  }
+
+  let botJoga = false;
+  var board = null
+  var game = new Chess()
+  var $status = $('#status')
+
+  function jogar(){
+    if(!game.game_over()){
+      if(game.turn() === 'b'){
+        jogadaBot().then(()=>{
+          botJoga = true;
+          fimDoTurno();
+        });
+      } else{
+        aguardarTurno();
+      }
+    } else{
+      alert("O jogo acabou!");
+      board = Chessboard('myBoard', config);
+      updateStatus();
+      jogar();
+    }
+  };
+
+  function turno(){
+    return new Promise((resolve)=>{
+      const intervalo = setInterval(()=>{
+        if(botJoga){
+          clearInterval(intervalo);
+          resolve();
+        }
+      }, 5000)
+    })
+  };
+
+  async function aguardarTurno(){
+    await turno();
+    jogar();
+  };
+
+  function jogadaBot() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      makeRandomMove();
+    }, 2000);
+    resolve();
+  });
+}
+
+  async function jogadaBot(){
+    await setTimeout(1000);
+    makeRandomMove();
+  }
+
+
+  function aoMover (source, piece, position, orientation) {
+    // do not pick up pieces if the game is over
+    if (game.game_over()) return false
+
+    // only pick up pieces for the side to move
+    if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+        (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+      return false
+    }
+  }
+
+  function aoSoltar (source, target) {
+    // see if the move is legal
+    var move = game.move({
+      from: source,
+      to: target,
+      promotion: 'q' // NOTE: always promote to a queen for example simplicity
+    })
+
+    // illegal move
+    if (move === null) return 'snapback'
+
+    botJoga = true;
+    jogar();
+
+    updateStatus()
+  }
+
+  // update the board position after the piece snap
+  // for castling, en passant, pawn promotion
+  function fimDoTurno () {
+    board.position(game.fen());
+  }
+
+  function updateStatus () {
+    var status = ''
+
+    var moveColor = 'Brancas'
+    if (game.turn() === 'b') {
+      moveColor = 'Pretas'
+    }
+
+    // checkmate?
+    if (game.in_checkmate()) {
+      status = 'O jogo acabou, as' + moveColor + ' estão em xeque-mate.'
+    }
+
+    // draw?
+    else if (game.in_draw()) {
+      status = 'O jogo empatou.'
+    }
+
+    // game still on
+    else {
+      status = moveColor + ' devem jogar'
+
+      // check?
+      if (game.in_check()) {
+        status += ' e as ' + moveColor + ' estão em xeque.'
+      } else {
+        status += '.'
+      }
+    }
+
+    $status.html(status)
+  }
+
+  var config = {
+    draggable: true,
+    position: 'start',
+    onDragStart: aoMover,
+    onDrop: aoSoltar,
+    onSnapEnd: fimDoTurno
+  }
+  board = Chessboard('myBoard', config)
+
+  updateStatus();
+  // jogar();
+
+
+
+  function logout(){
+    window.sessionStorage.clear();
+    window.location.href = './login.html'
+  };
+</script>
