@@ -359,7 +359,7 @@
         <div id="grafico_header">
           <h2>Veja o ranking médio dos outros jogadores!</h2>
           <h5 id="subtituloGrafico">Para exibir os gráficos dos usuários, faça o quiz!</h5>
-          <h5 id="jogar" class="esconder">Acha que está pronto para jogar?? <span id="clique">Clique aqui!</span></h5>
+          <h5 id="jogar" class="esconder">Acha que está pronto para jogar?? <span id="clique" onclick="chess()">Clique aqui!</span></h5>
         </div>
         <div id="grafico_conteudo">
           <canvas id="myChartCanvas"></canvas>
@@ -753,5 +753,9 @@
   function logout(){
     window.sessionStorage.clear();
     window.location.href = './login.html'
+  }
+
+  function chess(){
+    window.location.href = './chessboardjs-1.0.0/chess.html'
   }
 </script>
