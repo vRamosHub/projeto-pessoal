@@ -225,7 +225,7 @@ body {
 }
 
 #grafico_header {
-  height: 10vw;
+  height: 10vh;
   width: 80vw;
   font-family: "2-Player";
   color: white;
@@ -237,13 +237,51 @@ body {
   /* background-color: yellow; */
 }
 
+#grafico_header h2 {
+  margin: 0;
+  margin-bottom: 2%;
+}
+
+#grafico_header h5{
+  margin: 0;
+}
+
 #grafico_conteudo {
   height: 80vh;
-  width: 70vw;
+  width: 80vw;
   /* background-color: forestgreen; */
+
+  display: flex;
+  justify-content: center;
+}
+
+canvas{
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  margin: 0;
 }
 
 #grafico_botoes {
   height: 10vh;
-  width: 70vw;
+  width: 80vw;
+
+  font-family: '2-Player';
+  font-size: 1vmax;
+  line-height: 200%;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: blue; */
+}
+
+#clique:hover{
+  cursor: pointer;
+}
+
+.esconder{
+  display: none;
 }

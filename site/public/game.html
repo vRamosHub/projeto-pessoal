@@ -164,7 +164,7 @@
                 id="r3_opcao2"
                 value="certa"
               />
-              <label for="r3_opcao2" class="2">Rainha</label> <br />
+              <label for="r3_opcao2" class="2">Dama</label> <br />
 
               <input
                 type="radio"
@@ -206,7 +206,7 @@
                 value="certa"
               />
               <label for="r4_opcao1" class="1"
-                >Encurralar o rei adversário</label
+                >Encurralar o rei adversário e dar xeque-mate</label
               >
               <br />
 
@@ -276,7 +276,7 @@
                 id="r5_opcao2"
                 value="errada"
               />
-              <label for="r5_opcao2" class="2">Rainha</label> <br />
+              <label for="r5_opcao2" class="2">Dama</label> <br />
 
               <input
                 type="radio"
@@ -309,7 +309,7 @@
           </div>
           <div class="respostas">
             <h4>
-              Quem ganhou uma batalha contra outros grandes mestres do mundo em
+              Quem ganhou uma batalha contra outros grandes mestres do mundo e mais de 50000 pessoas ao redor do mundo, em
               sua época?
             </h4>
             <form action="" class="form_resposta">
@@ -359,11 +359,14 @@
         <div id="grafico_header">
           <h2>Veja o ranking médio dos outros jogadores!</h2>
           <h5 id="subtituloGrafico">Para exibir os gráficos dos usuários, faça o quiz!</h5>
+          <h5 id="jogar" class="esconder">Acha que está pronto para jogar?? <span id="clique">Clique aqui!</span></h5>
         </div>
         <div id="grafico_conteudo">
           <canvas id="myChartCanvas"></canvas>
         </div>
         <div id="grafico_botoes">
+          Legenda: MN: Mestre Nacional, MI: Mestre Internacional, GM: Grande Mestre. <br>
+          Valores de 0 a 6 pontos feitos na quiz.
           <!-- <button onclick="obterDadosGrafico()"></button> -->
         </div>
       </div>
@@ -379,6 +382,10 @@
   const previouses = document.querySelectorAll(".previous_btn");
   const submit_btn = document.getElementById("submit_btn");
   const subtitulo = document.getElementById("subtituloGrafico");
+  const jogar = document.getElementById("jogar");
+  const legenda = document.getElementById("grafico_botoes")
+
+
 
   var grafico;
 
@@ -518,6 +525,17 @@
 
     jaFezQuiz = true;
     subtitulo.style.display = 'none';
+    var soma_respostas = 0;
+    for(var i = 0; i < respostas_quiz.length; i++){
+      soma_respostas += respostas_quiz[i];
+    }
+    if(soma_respostas == 6){
+      jogar.classList.remove("esconder");
+    }
+
+    alert("Você fez " + soma_respostas + " pontos!");
+    legenda.innerHTML += "Você fez " + soma_respostas + " pontos!";
+
     obterDadosGrafico();
   }
 
@@ -575,7 +593,41 @@
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
-      labels.push("Pontos " + registro.Pontos);
+      if(i==0){
+                labels.push(
+                "Novato: 0P"
+              );
+              }
+              else if(i==1){
+                labels.push(
+                "Aprendiz: 1P"
+              );
+              }
+              else if(i==2){
+                labels.push(
+                "Avançado: 2P"
+              );
+              }
+              else if(i==3){
+                labels.push(
+                "Expert: 3P"
+              );
+              }
+              else if(i==4){
+                labels.push(
+                "MN: 4P"
+              );
+              }
+              else if(i==5){
+                labels.push(
+                "MI: 5P"
+              );
+              }
+              else {
+                labels.push(
+                "GM: 6P"
+              );
+              }
       dados.datasets[0].data.push(registro.qtdDePessoas);
     }
 
@@ -607,7 +659,8 @@
             ticks: {
               color: "white",
               font: {
-                family: "2-Player",
+                family: "'2-Player'",
+                size: 10 // Defina o tamanho da fonte desejado
               },
             },
           },
@@ -617,8 +670,10 @@
             labels: {
               font: {
                 family: "'2-Player', 'Lato'",
+                size: "10vmax",
               },
               color: "white",
+              fontSize: "8vmax"
             },
           },
         },
@@ -642,9 +697,42 @@
             grafico.config._config.data.datasets[0].data = [];
             for (i = 0; i < resposta.length; i++) {
               var registro = resposta[i];
-              grafico.config._config.data.labels.push(
-                "Pontos " + registro.Pontos
+
+              if(i==0){
+                grafico.config._config.data.labels.push(
+                "Novato: 0P"
               );
+              }
+              else if(i==1){
+                grafico.config._config.data.labels.push(
+                "Aprendiz: 1P"
+              );
+              }
+              else if(i==2){
+                grafico.config._config.data.labels.push(
+                "Avançado: 2P"
+              );
+              }
+              else if(i==3){
+                grafico.config._config.data.labels.push(
+                "Expert: 3P"
+              );
+              }
+              else if(i==4){
+                grafico.config._config.data.labels.push(
+                "MN: 4P"
+              );
+              }
+              else if(i==5){
+                grafico.config._config.data.labels.push(
+                "MI: 5P"
+              );
+              }
+              else {
+                grafico.config._config.data.labels.push(
+                "GM: 6P"
+              );
+              }
               grafico.config._config.data.datasets[0].data.push(
                 registro.qtdDePessoas
               );

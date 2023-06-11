@@ -56,7 +56,7 @@ a {
 
 /* Definindo imagem controle da musica */
 #sound-image {
-  height: 7vh;
+  height: auto;
   width: 6vw;
   position: absolute;
   left: 2%;
