@@ -68,13 +68,14 @@
   var game = new Chess()
   var $status = $('#status')
 
-  function jogar(){
+  async function jogar(){
     if(!game.game_over()){
       if(game.turn() === 'b'){
-        jogadaBot().then(()=>{
-          botJoga = true;
-          fimDoTurno();
-        });
+        botJoga = true;
+
+        await new Promise((resolve) => setTimeout(resolve,800));
+        makeRandomMove();
+        fimDoTurno();
       } else{
         aguardarTurno();
       }
@@ -102,19 +103,19 @@
     jogar();
   };
 
-  function jogadaBot() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      makeRandomMove();
-    }, 2000);
-    resolve();
-  });
-}
+  // function jogadaBot() {
+  // return new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     makeRandomMove();
+  //   }, 2000);
+  //   resolve();
+  // });
+  // }
 
-  async function jogadaBot(){
-    await setTimeout(1000);
-    makeRandomMove();
-  }
+  // async function jogadaBot(){
+  //   await setTimeout(1000);
+  //   makeRandomMove();
+  // }
 
 
   function aoMover (source, piece, position, orientation) {
